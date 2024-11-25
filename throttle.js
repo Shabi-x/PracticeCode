@@ -9,9 +9,9 @@ function throttle(delay, funct, ...args) {
   };
 }
 
-const throlltle = (delay, fn, ...args) => {
+const throttle2 = (delay, fn) => {
   let current = 0;
-  return () => {
+  return (...args) => {
     let now = Date.now();
     if (now - current > delay) {
       fn(...args);
