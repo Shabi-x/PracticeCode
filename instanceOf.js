@@ -34,7 +34,7 @@ function myInance(A, B) {
     if ((A.__proto__ = B.prototype)) {
       return true;
     } else {
-      A = A.__proto;
+      A = A.__proto__;
     }
   }
   return false;

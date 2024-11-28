@@ -9,17 +9,16 @@
 //     return newObj
 // }
 
-
 function deepClone(obj) {
-    if (obj == null || typeof obj !== 'object') {
-        return obj
-    }
+  if (obj == null || typeof obj !== "object") {
+    return obj;
+  }
 
-    let newobj = Array.isArray(obj) ? [] : {}
-    for (let key of obj) {
-        if (obj.hasOwnProperty(key)) {
-            newobj[key] = obj[deepClone(key)]
-        }
+  let newobj = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newobj[key] = deepClone(obj[key]);
     }
-    return newobj
+  }
+  return newobj;
 }
