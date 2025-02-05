@@ -29,13 +29,3 @@ function myInstanceOf(A, B) {
 //
 //
 //
-function myInance(A, B) {
-  while (A != null) {
-    if ((A.__proto__ = B.prototype)) {
-      return true;
-    } else {
-      A = A.__proto__;
-    }
-  }
-  return false;
-}
