@@ -33,3 +33,15 @@ const flatten = (arr) => {
   });
   return res;
 };
+
+function fflatten(arrs) {
+  let res = [];
+  arrs.foreach((item) => {
+    if (Array.isArray(item)) {
+      res.concat(fflatten(item));
+    } else {
+      res.push(item);
+    }
+  });
+  return res;
+}
