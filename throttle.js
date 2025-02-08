@@ -9,13 +9,13 @@
 //   };
 // }
 
-function throttle(delay, fn) {
-  let current = 0;
-  return (...args) => {
-    let now = Number(Date.now());
-    if (now - current > delay) {
-      fn(...args);
-      current = now;
+function throttle(delay,fn){
+  let lastCallTime  = 0
+  return function(...args){
+    let now = new Date()
+    if(now - lastCallTime >= delay){
+      fn.apply(this,args)
+      lastCallTime  =now
     }
-  };
+  }
 }
