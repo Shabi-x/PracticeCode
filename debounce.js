@@ -33,12 +33,12 @@ function debounce2(fn, delay) {
  *
  */
 
-const debounce = (fn, delay) => {
+function debounce(delay, fn) {
   let timer = null;
-  return (...args) => {
+  return function (...args) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       fn(...args);
     }, delay);
   };
-};
+}
