@@ -12,7 +12,8 @@ function myPromiseAll(promises) {
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
       if (item instanceof Promise) {
-        item.then(
+        // item.then(
+        Promise.resolve(item).then(
           (res) => {
             result[index] = res;
             count++;
@@ -64,3 +65,20 @@ function myPromiseAll(promises) {
  *
  *
  */
+function alllllllll(promises) {
+  let count=0;
+  let result=[]
+  return new Promise((resolve,reject)=>{
+    promises.forEach((item,index)=>{
+      Promise.resolve(item).then((res)=>{
+        result[index] = res
+        count++
+        if(promises.length == count){
+          resolve(result)
+        }
+      },(err)=>{
+        reject(err)
+      })
+    })
+  })
+}

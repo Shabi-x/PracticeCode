@@ -8,7 +8,7 @@ function promisesAny(promises) {
   let count = 0;
   return new Promise((resolve, reject) => {
     promises.forEach((promise, index) => {
-      promise.then(
+      Promise.resolve(promise).then(
         (value) => {
           res[index] = value;
           count++;
