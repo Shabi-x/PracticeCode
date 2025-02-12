@@ -34,14 +34,19 @@ const flatten = (arr) => {
   return res;
 };
 
-function fflatten(arrs) {
-  let res = [];
-  arrs.foreach((item) => {
-    if (Array.isArray(item)) {
-      res.concat(fflatten(item));
-    } else {
+const flattenReduce = (arr) => arr.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
+
+const flattenStack = (arr)=>{
+  const stack =[];
+  const res =[];
+  stack.push(arr);
+  while(stack.length){
+    let item = stack.pop();
+    if(Array.isArray(item)){
+      stack.push(...item);
+    }else{
       res.push(item);
     }
-  });
+  }
   return res;
 }
