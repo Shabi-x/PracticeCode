@@ -29,3 +29,15 @@ function myInstanceOf(A, B) {
 //
 //
 //
+
+function myInstanceOff(A,B){
+  //A是实例对象
+  //B是构造函数
+  while(A!=null){
+    if(A.__proto__===B.prototype){
+      return true
+    }
+    A=A.__proto__
+  }
+  return false
+}
