@@ -28,7 +28,7 @@ function AllSettled(promiseArr) {
   let result = [];
   return new Promise((resolve, rejected) => {
     promiseArr.forEach((item, index) => {
-      item.then(
+      Promise.resolve(item).then(
         (res) => {
           count++;
           result[index] = { status: "fulfiled", value: res };
