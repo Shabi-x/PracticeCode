@@ -14,7 +14,8 @@ function myPromiseAll(promises) {
     promises.forEach((item, index) => {
       //涉及到了非promise的考虑，面试记忆这个太复杂了，不如下面这个
       if (item instanceof Promise) {
-        item.then(
+        // item.then(
+        Promise.resolve(item).then(
           (res) => {
             result[index] = res;
             count++;
@@ -64,8 +65,7 @@ function myPromiseAll(promises) {
  *
  *
  *
- *
- */
+
 
 function allPromise(promises) {
   let result = [];
