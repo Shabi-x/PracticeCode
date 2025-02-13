@@ -37,35 +37,6 @@ function myPromiseAll(promises) {
     });
   });
 }
-/**
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
-
 
 function allPromise(promises) {
   let result = [];
@@ -84,6 +55,27 @@ function allPromise(promises) {
         },
         (err) => {
           reject(err);
+        }
+      );
+    });
+  });
+}
+
+function myyAll(promises) {
+  let res=[]
+  let count=0
+  return new Promise((resolve, reject) => {
+    promises.forEach((item, index) => {
+      Promise.resolve(item).then(
+        (res) => {
+          result[index] = res
+          count++
+          if(promises.length === count){
+            resolve(result)
+          }
+        },
+        (err) => {
+          reject(err)
         }
       );
     });
