@@ -24,10 +24,10 @@ function add(a, b) {
   a = a.split("");
   b = b.split("");
 
-  while (a.length || b.length || temp != 0) {
-    let temp = Number(a.pop()) + Number(b.pop());
+  while (a.length || b.length || temp) {
+    temp += Number(a.pop() || 0) + Number(b.pop() || 0);
     res = (temp % 10) + res;
     temp = Math.floor(temp / 10);
   }
-  return res;
+  return res
 }
