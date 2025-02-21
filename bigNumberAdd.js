@@ -29,5 +29,5 @@ function add(a, b) {
     res = (temp % 10) + res;
     temp = Math.floor(temp / 10);
   }
-  return res
+  return res;
 }
