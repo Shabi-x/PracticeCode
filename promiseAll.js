@@ -62,20 +62,20 @@ function allPromise(promises) {
 }
 
 function myyAll(promises) {
-  let res=[]
-  let count=0
+  let result = [];
+  let count = 0;
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
       Promise.resolve(item).then(
         (res) => {
-          result[index] = res
-          count++
-          if(promises.length === count){
-            resolve(result)
+          result[index] = res;
+          count++;
+          if (count >= promises.length) {
+            resolve(result);
           }
         },
         (err) => {
-          reject(err)
+          reject(err);
         }
       );
     });
