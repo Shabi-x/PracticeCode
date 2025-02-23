@@ -22,3 +22,24 @@ function deepClone(obj) {
   }
   return newobj;
 }
+
+
+function deepClone2(obj) {
+  if (obj === null || typeof obj !== "object") {
+      return obj;
+  }
+
+  // 处理数组
+  if (Array.isArray(obj)) {
+      return obj.map(item => deepClone(item));
+  }
+
+  // 处理对象
+  const clonedObj = {};
+  for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          clonedObj[key] = deepClone(obj[key]);
+      }
+  }
+  return clonedObj;
+}

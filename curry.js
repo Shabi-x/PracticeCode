@@ -34,14 +34,14 @@
 //   }
 // }
 
-function curry(fn){
-  return function curried(...args1){
-    if(args1.length>=fn.length){
-      return fn.apply(this,args1)
-    }else{
-      return function(...args){
-        return curried.apply(this,args1.concat(args2))
-      }
+function curry(fn) {
+  return function curried(...args1) {
+    if (fn.length > args1.length) {
+      return function (...args2) {
+        return curried.apply(this, args1.concat(args2));
+      };
+    } else {
+      return fn.apply(this, args1);
     }
-  }
+  };
 }

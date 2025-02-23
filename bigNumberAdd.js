@@ -20,14 +20,13 @@ function sumBigNumber(a, b) {
 
 function add(a, b) {
   let res = "";
-  let temp = 0;
+  let temp = o;
   a = a.split("");
   b = b.split("");
-
   while (a.length || b.length || temp) {
-    temp += Number(a.pop() || 0) + Number(b.pop() || 0);
+    temp = temp + Number(a.pop()) + Number(b.pop());
     res = (temp % 10) + res;
-    temp = Math.floor(temp / 10);
+    temp=Math.floor(temp/10)
   }
-  return res;
+  return res
 }
