@@ -82,12 +82,11 @@ class LRU {
     if (this.map.has(key)) {
       this.map.delete(key);
       this.map.set(key, value);
-    }else{
-      if(this.map.size>this.capacity){
-        this.map.delete(this.map.keys().next().value)
-        this.map.set(key,value)
-      }else{
-        this.map.set(key,value)
+    } else {
+      if (this.map.size >= this.capacity) {
+        this.map.delete(this.map.keys().next().value);
+      } else {
+        this.map.set(key, value);
       }
     }
   }

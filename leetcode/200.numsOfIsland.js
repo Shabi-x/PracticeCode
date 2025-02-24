@@ -2,7 +2,7 @@ var numIslands = function (grid) {
     let m = grid.length, n = grid[0].length
     let ans = 0
     for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; jj++) {
+        for (let j = 0; j < n; j++) {
             if (grid[i][j] === '1') {
                 ans++
                 dfs(grid, i, j)
