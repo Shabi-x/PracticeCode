@@ -8,7 +8,9 @@
 //     }
 //     return newObj
 // }
-
+function eazyDeepClone(obj){
+  return JSON.parse(JSON.stringify(obj))
+}
 function deepClone(obj) {
   if (obj == null || typeof obj !== "object") {
     return obj;
