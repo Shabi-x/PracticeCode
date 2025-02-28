@@ -1,5 +1,6 @@
+//不允许用set
 function mergeArray(num1, m, num2, n) {
-  let idx = m + n + 1;
+  let idx = m + n - 1
   let i = m - 1,
     j = n - 1;
   while (i >= 0 && j >= 0) {
@@ -15,5 +16,5 @@ function mergeArray(num1, m, num2, n) {
   while (j >= 0) {
     num1[idx--] = num2[j--];
   }
-  return num1
+  return num1;
 }
