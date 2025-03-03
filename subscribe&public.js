@@ -26,27 +26,3 @@ class EventEmitter {
     }
   }
 }
-
-
-//PRACTICE
-class publishAndSubscribe {
-  constructor() {
-    this.event = {};
-  }
-  publish(eventName,...args){
-    if(!this.event[eventName]){
-      return 
-    }else{
-      this.event[eventName].forEach((callback)=>{
-        callback.apply(this,args)
-      })
-    }
-  }
-  subscribe(eventName,callback){
-    if(!this.event[eventName]){
-      this.event[eventName]=[]
-    }else{
-      this.event[eventName].push(callback)
-    }
-  }
-}
