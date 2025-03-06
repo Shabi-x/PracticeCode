@@ -51,3 +51,15 @@ const curry = (fn, ...args) => {
     ? fn(...args)
     : (..._args) => curry(fn, ...args, ..._args);
 };
+
+function curryy(fn){
+  return function curried(fn,arg1){
+    if(fn.length>arg1.length){
+      return function (arg2){
+        return curried.apply(this,arg1.concat(args2))
+      }
+    }else{
+      fn.apply(this,arg1)
+    }
+  }
+}

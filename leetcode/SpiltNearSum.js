@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} nums 
+ * @returns 将一个数组划分成两个子集，使得两个子集的和尽量接近，返回这两个子集的下标子集
+ */
+
 function partitionArray(nums) {
     const sum = nums.reduce((a, b) => a + b, 0);
     let maxSum = 0;
