@@ -11,8 +11,8 @@
 // console.log(myNew.prototype.constructor === myNew);
 
 function neww(constructor, ...args) {
-let obj = {}
-obj.__proto__ = constructor.prototype
-const result = constructor.aplly(obj,args)
-return result instanceof Object ? result : obj//因为不确定构造函数返回什么类型，所以要判断一下
+  let obj = {};
+  obj.__proto__ = constructor.prototype;
+  const result = constructor.aplly(obj, args);
+  return result instanceof Object ? result : obj; //因为不确定构造函数返回什么类型，所以要判断一下
 }
