@@ -20,7 +20,7 @@ function sumBigNumber(a, b) {
 
 function add(a, b) {
   let res = "";
-  let temp = o;
+  let temp = 0;
   a = a.split("");
   b = b.split("");
   while (a.length || b.length || temp) {
