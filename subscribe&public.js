@@ -26,3 +26,28 @@ class EventEmitter {
     }
   }
 }
+
+class EventBus {
+  constructor() {
+    this.event = {};
+    // 'run' : []
+  }
+
+  subscribe(type, callback) {
+    if (!this.event[type]) {
+      this.event[type] = [];
+    } else {
+      this.event[type].push(callback);
+    }
+  }
+
+  publish(type, ...args) {
+    if (!this.event[type]) {
+      return;
+    } else {
+      this.event[type].forEach((event) => {
+        event.apply(this, args);
+      });
+    }
+  }
+}

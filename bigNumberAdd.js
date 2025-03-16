@@ -18,15 +18,16 @@ function sumBigNumber(a, b) {
   return res;
 }
 
-function add(a, b) {
+function bigAdd(a, b) {
   let res = "";
   let temp = 0;
+
   a = a.split("");
   b = b.split("");
-  while (a.length || b.length || temp) {
-    temp = temp + Number(a.pop()) + Number(b.pop());
+  while (a.length || b.length||temp) {
+    temp = Number(a.pop()) + Number(b.pop());
     res = (temp % 10) + res;
-    temp=Math.floor(temp/10)
+    temp = Math.floor(temp / 10);
   }
   return res
 }

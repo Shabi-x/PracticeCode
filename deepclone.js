@@ -42,7 +42,7 @@ function deepClone2(obj) {
       newobj[key] = deepClone(obj[key]);
     }
   }
-  return clonedObj;
+  return newobj;
 }
 
 function eazyClone(obj) {
