@@ -52,7 +52,6 @@ function promiseWorker(max, timeout, retry) {
    * @param {function} resolve Promise resolve
    * @param {function} reject Promise reject
    * @param  {...any} args 任务函数的参数
-   * @returns {Promise} 返回一个 Promise
    * @private
    */
   function retryWork(fn, retryCount, resolve, reject, ...args) {
@@ -70,7 +69,6 @@ function promiseWorker(max, timeout, retry) {
    * @param {function} resolve Promise resolve
    * @param {function} reject Promise reject
    * @param  {...any} args 任务函数的参数
-   * @returns {void}
    * @private
    */
   async function workRunner(fn, retryCount, resolve, reject, ...args) {

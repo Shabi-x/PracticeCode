@@ -29,7 +29,7 @@ class PromisePool {
     return new Promise((resolve) => {
       setTimeout(() => {
         console.log(`${name} 完成`);
-        resolve();
+        resolve(name);
       }, ms);
     });
   }
