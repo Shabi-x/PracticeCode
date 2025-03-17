@@ -3,5 +3,4 @@ var maxDepth = function (root) {
     let leftdepth = maxDepth(root.left);
     let rightDepth = maxDepth(root.right);
     return Math.max(rightDepth, leftdepth) + 1
-
 };

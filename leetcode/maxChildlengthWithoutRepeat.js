@@ -1,5 +1,5 @@
 var lengthOfLongestSubstring = function (s) {
-  let l = 0;
+  let l = 0,
   r = 0;
   let set = new Set();
   let maxlen = 0;
