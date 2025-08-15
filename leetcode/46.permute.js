@@ -1,3 +1,12 @@
+/**
+ * LeetCode 46. 全排列 (Permutations)
+ * 
+ * 题目描述：
+ * 给定一个不含重复数字的数组 nums，返回其所有可能的全排列。你可以按任意顺序返回答案。
+ * 
+ * 解法：回溯算法
+ * 使用深度优先搜索和回溯，通过 used 数组记录已使用的元素，递归构建所有排列
+ */
 const permute = function (nums) {
     const result = [];
     const used = new Array(nums.length).fill(false); // 用于记录哪些元素已经被使用

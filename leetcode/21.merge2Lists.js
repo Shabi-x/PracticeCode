@@ -1,3 +1,12 @@
+/**
+ * LeetCode 21. 合并两个有序链表 (Merge Two Sorted Lists)
+ * 
+ * 题目描述：
+ * 将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+ * 
+ * 解法：迭代法
+ * 使用虚拟头节点简化边界处理，比较两个链表的当前节点值，将较小的节点连接到结果链表
+ */
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
