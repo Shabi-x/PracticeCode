@@ -9,20 +9,25 @@
 //     return newObj
 // }
 function eazyDeepClone(obj){
-  return JSON.parse(JSON.stringify(obj))
+  return JSON.parse(JSON.stringify(obj));
 }
 function deepClone(obj) {
-  if (obj == null || typeof obj !== "object") {
-    return obj;
+  if (typeof obj !='object' && obj != null ){
+    return obj
   }
 
-  let newobj = Array.isArray(obj) ? [] : {};
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      newobj[key] = deepClone(obj[key]);
+  if(Array.isArray(obj)){
+    obj.map((item)=>deepClone(item))
+  }
+
+  const newObj ={}
+  for(let key in obj){
+    if(obj.hasOwnProperty(key)){
+      newObj[key] = deepClone(newObj[key])
     }
   }
-  return newobj;
+
+  return newObj
 }
 
 function deepClone2(obj) {
