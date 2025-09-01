@@ -36,17 +36,19 @@ const flatten = (arr) => {
 
 const flattenReduce = (arr) => arr.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
 
-const flattenStack = (arr)=>{
-  const stack =[];
-  const res =[];
-  stack.push(arr);
-  while(stack.length){
-    let item = stack.pop();
-    if(Array.isArray(item)){
-      stack.push(...item);
-    }else{
-      res.push(item);
-    }
+function flattenRecursiveWithDepth(arr, depth = 1) {
+  // 如果深度为0或负数，或者arr不是数组，直接返回原值
+  if (depth < 1 || !Array.isArray(arr)) {
+    return arr;
   }
-  return res;
+  return arr.reduce((result, currentItem) => {
+    // 如果当前项是数组且深度尚有余量，则递归调用并减少深度
+    if (Array.isArray(currentItem) && depth > 0) {
+      result.push(...flattenRecursiveWithDepth(currentItem, depth - 1)); // 注意展开递归结果
+    } else {
+      // 否则，直接将当前项加入结果
+      result.push(currentItem);
+    }
+    return result;
+  }, []); // 初始值为空数组
 }
