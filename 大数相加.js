@@ -1,5 +1,20 @@
 /**
  * 大数相加
+ * 
+ * 整体思路：
+ * 1. 核心思想：模拟手工加法运算，从个位开始逐位相加
+ * 2. 算法步骤：
+ *    - 将两个数字字符串转换为数组，便于从末尾开始处理
+ *    - 使用while循环，从右到左（个位到高位）逐位相加
+ *    - 维护一个进位值temp，处理相加结果大于等于10的情况
+ *    - 每次计算当前位的结果：(当前位相加 + 进位) % 10
+ *    - 更新进位值：Math.floor((当前位相加 + 进位) / 10)
+ *    - 将当前位结果拼接到结果字符串的前面
+ * 3. 关键点：
+ *    - 使用pop()方法从数组末尾取数，模拟从个位开始计算
+ *    - 当某个数组为空时，用0补位继续计算
+ *    - 循环条件包含temp，确保最后的进位也被处理
+ *    - 结果字符串采用前拼接方式，保证数位顺序正确
  */
 
 function sumBigNumber(a, b) {
@@ -11,23 +26,13 @@ function sumBigNumber(a, b) {
 
   while (a.length || b.length || temp) {
     temp += Number(a.pop() || 0) + Number(b.pop() || 0); //进位值 = a的最后一位+b的最后一位
-    res = (temp % 10) + res; //字符串拼接法
+    res = (temp % 10) + res; //对10取余，然后拼接到res前面
     temp = Math.floor(temp / 10);
   }
 
   return res;
 }
 
-function bigAdd(a, b) {
-  let res = "";
-  let temp = 0;
 
-  a = a.split("");
-  b = b.split("");
-  while (a.length || b.length||temp) {
-    temp = Number(a.pop()) + Number(b.pop());
-    res = (temp % 10) + res;
-    temp = Math.floor(temp / 10);
-  }
-  return res
-}
+
+
