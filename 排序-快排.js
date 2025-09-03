@@ -1,12 +1,18 @@
 /**
  * 快速排序算法实现
- * 算法思路：选择数组的第一个元素作为基准值，通过分区操作将数组分为两部分（小于等于基准值的元素放左边，大于基准值的元素放右边），
- *          然后递归对左右两部分进行同样的排序操作，最终完成整个数组的排序
+    先取出一个基准值。
+    根据这个基准值 再分为小于基准值的数组 和 大于基准值 的数组
+    对两侧进入递归快排
  * 时间复杂度：平均情况 O(n log n)，最坏情况 O(n²)（当数组已排序或接近排序时）
  * 空间复杂度：O(log n)（递归调用栈所需空间，平均情况），最坏情况 O(n)
  */
+
+
+// 一开始把数组的第一个元素作为基准元素
+// 遇到小于基准的就交换到左边，遇到大于基准的就交换到右边
+// 直到左右指针相遇，将基准元素放到相遇的位置，这样就分成了小于基准值的数组 和 大于基准值 的数组
 function partition(arr, start, end) {
-  var boundary = arr[start];
+  const boundary = arr[start];
   while (start < end) {
     while (start < end && arr[end] >= boundary) {
       --end;
@@ -24,7 +30,7 @@ function partition(arr, start, end) {
 
 function quicksort(arr, start, end) {
   if (start >= end) return;
-  var boundaryIndex = partition(arr, start, end);
+  const boundaryIndex = partition(arr, start, end); // boundaryIndex是基准值的下标
   quicksort(arr, start, boundaryIndex - 1);
   quicksort(arr, boundaryIndex + 1, end);
 }
