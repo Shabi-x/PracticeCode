@@ -22,6 +22,6 @@ const permute = function (nums) {
         }
     }
 
-    dfs([]); // 从空数组开始递归
+    dfs([]); // 从空数组（0个节点）开始递归
     return result;
 };
