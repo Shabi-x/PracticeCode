@@ -33,6 +33,10 @@ function sumBigNumber(a, b) {
   return res;
 }
 
-
-
-
+// bigInt法
+// 1、浏览器兼容问题
+// 2、只能处理整数
+// 3、不能和Number类型混合使用
+function sumBigNumber2(a, b) {
+  return BigInt(a) + BigInt(b);
+}
