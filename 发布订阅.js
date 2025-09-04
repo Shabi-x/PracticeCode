@@ -19,6 +19,18 @@ class EventBus {
       });
     }
   }
+      
+   off(type, callback) {
+    if (!this.event[type]) return;
+    
+    // 过滤掉要移除的回调
+    this.event[type] = this.event[type].filter(cb => cb !== callback);
+    
+    // 若数组为空，可删除该事件类型（优化内存）
+    if (this.event[type].length === 0) {
+      delete this.event[type];
+    }
+  }
 }
 
 
